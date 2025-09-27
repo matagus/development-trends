@@ -110,9 +110,18 @@ all_activities = list(get_top_activities_by_repo_for(username))
 
 ### Using hatch (recommended)
 
+Install hatch:
+
+```bash
+pip install hatch
+```
+
 ```bash
 # Run tests for all Python versions
 hatch run test:test
+
+# or run them in verbose mode
+hatch run test:test -v
 
 # Run tests for a specific Python version
 hatch run test.py3.12:test
@@ -174,6 +183,11 @@ pip install pre-commit
 pre-commit install
 ```
 
+The repo also has a CI workflow that runs tests on pull requests and merges to main:
+https://github.com/matagus/development-trends/actions/workflows/ci.yml
+
+And the CI workflow reports coverage to codecov.io: https://app.codecov.io/gh/matagus/development-trends
+
 ## Limitations
 
 - GitHub API rate limit: 60 requests per hour for unauthenticated requests
@@ -190,10 +204,6 @@ pre-commit install
 3. Make your changes
 4. Run tests to ensure everything works
 5. Submit a pull request
-
-## License
-
-BSD License (see LICENSE file for details)
 
 ## Author
 
