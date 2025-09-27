@@ -1,3 +1,40 @@
+Notes and comments
+
+* I develop all this pushing commits that made sense as I progressed through the challenge, pushing them to main branch
+for simplicity and given the time constraints. But ideally this would have a branch of main and I would have a PR with
+all this commits in it, and referencing the Jira ticket in de title and/or description.
+
+* I created a basic Github client assuming that that's the only Github endpoint we'll be using. If we need to consume
+  more, it would be better to use an open source, well-maintained, stable and fully featured Github client like PyGithub.
+
+* Network can fail, Github servers can fail: I'm not doing any explicit retry / exponential backoff, just using the
+default retry logic from requests library.
+
+* I'm not handling rate limiting errors. GitHub API limits requests to 60 per hour for unauthenticated requests like the
+  ones I'm doing here.
+
+* I guess it would be nice to validate / sanitize the username. Didn't had time to research Github username validation
+  though.
+
+* I'm not handling / dealing with the Etag header mentioned in the Github API docs for the Events endpoint.
+
+* test_development_trends.py contains ALL the tests. Ideally I would have a separate file for each test file inside a
+  `tests` directory. Possibly development_trends.py module needs to be split into multiple modules too.
+
+* Didn't get the time to test the Github API client independently.
+
+* I reused some "base repo stuff" that I use for my open spurce repos like https://github.com/matagus/django-app-starter:
+pre-comit config, editorconfif, gitignore, github action for CI, pyproject.toml with hatch integration for running
+tests locally for every python version, etc. I would have loved to use `uv` instead, I haven't fully learnt it yet to
+feel confident in using it.
+
+* I did heavy use of LLMs (Claude 4.1 Opus, GPT-5 and gemini 2.5 pro) to write the README.md, critizice every bg change
+  I did and to improve the tests quickly after my first version. Couldn't have done all this in such a short time
+  without using them.
+
+* Please make sure you read the README.md file to get instructions on how to use this script and run the tests :)
+
+
 Questions
 
 * How do you define "recent"? I'm assuming that we can consider as recent any data returned by this Github endpoint,
@@ -21,3 +58,8 @@ Ref: https://docs.github.com/en/rest/activity/events?apiVersion=2022-11-28
 
 * Should we count contributions to a forked repo as contributions to the original repo? I'm assuming that we don't, for
   simplicity.
+
+
+PS: Funny thing: I think I spend more time thinking and adding notes and questions here than coding.
+
+Thank you!
