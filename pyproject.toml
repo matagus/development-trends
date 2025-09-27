@@ -44,7 +44,7 @@ include = [
 
 [tool.hatch.build.targets.wheel]
 include = [
-    "development_trends/",
+    "__about__.py", "development_trends.py", "github_client.py", "test_development_trends.py", "test_integration.py",
 ]
 
 [tool.hatch.envs.default]
