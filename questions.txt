@@ -1,0 +1,23 @@
+Questions
+
+* How do you define "recent"? I'm assuming that we can consider as recent any data returned by this Github endpoint,
+which is:
+
+> The timeline will include up to 300 events. Only events created within the past 30 days will be included. Events
+> older than 30 days will not be included (even if the total number of events in the timeline is less than 300).
+
+Ref: https://docs.github.com/en/rest/activity/events?apiVersion=2022-11-28
+
+* Which event types count as valid contributions? For simplicity I just count the ones mentioned in email.
+
+* Related to the item above: how do we map Github events to "activities"? I did a very simple mapping given the time
+  constraints.
+
+* How to handle tie cases? ie when several activity types have the same frequency for the top 3. For simplicity,
+  I'm using a `collections.Counter`.
+
+* How do we define repo ownership? I'm assuming that the repo "matagus/foobar" is owned by "matagus". More research
+  needs to be done here to understand other cases.
+
+* Should we count contributions to a forked repo as contributions to the original repo? I'm assuming that we don't, for
+  simplicity.

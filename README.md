@@ -1,7 +1,20 @@
 # Development Trends for Github API
 
+![CI badge](https://github.com/matagus/development-trends/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/matagus/development-trends/graph/badge.svg?token=a64SxEDQk0)](https://codecov.io/gh/matagus/development-trends)
+
 A library to get visibility into engineering activity so that we can track development trends across projects. It analyzes recent GitHub activity for a user and provides insights into their top activities by repository.
 
+## 📝 Important Note
+
+**Please read the `questions.txt` file** for important notes, implementation decisions, and questions about the project requirements.
+
+## Features
+
+- Fetches recent GitHub events for a user (up to 30 days)
+- Groups activities by repository
+- Identifies top 3 activity types per repository
+- Distinguishes between owned and contributed repositories
 - Maps GitHub events to meaningful activity types (commits, pull requests, merges, comments)
 
 ## Requirements
