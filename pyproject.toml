@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "development-trends"
+dynamic = ["version"]
+description = ""
+readme = "README.md"
+authors = [
+    { name = "Matias Agustin Mendez", email = "matagus@gmail.com" },
+]
+keywords = []
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = ["requests==2.32.5"]
+
+[project.urls]
+Homepage = "https://github.com/matagus/development-trends"
+Issues = "https://.github.com/matagus/development-trends/issues"
+Repository = "https://github.com/matagus/development-trends"
+Changelog = "https://githib.com/matagus/development-trends/releases"
+
+[tool.hatch.version]
+path = "__about__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "development_trends/",
+]
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "development_trends/",
+]
+
+[tool.hatch.envs.default]
+dependencies = [
+    "ipython", "ipdb", "mypy", "typing-extensions"
+]
+
+# Test environment
+[[tool.hatch.envs.test.matrix]]
+python = ["3.10", "3.11", "3.12", "3.13"]
+
+[tool.hatch.envs.test]
+dependencies = ["coverage[toml]", "pytest" ,"responses"]
+
+[tool.hatch.envs.test.scripts]
+test = "pytest {args}"
+test-cov = "coverage run -m pytest {args}"
+cov-report = ["coverage json", "coverage report"]
+cov = ["test-cov", "cov-report"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.black]
+line-length = 120

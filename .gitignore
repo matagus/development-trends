@@ -1,0 +1,30 @@
+*.pyc
+*$py.class
+__pycache__/
+# builds related
+build/
+dist/
+*.egg-info/
+.installed.cfg
+*.egg
+# test coverage
+.coverage
+coverage.*
+htmlcov/
+# db
+*.sqlite3
+# translations
+*.mo
+*.pot
+# ipython
+profile_default/
+ipython_config.py
+# celery stuff
+celerybeat-schedule
+celerybeat.pid
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+# Django
+*.log
